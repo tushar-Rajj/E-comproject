@@ -1,0 +1,120 @@
+<% layout("/layouts/boilerplate") %>
+
+
+
+<body>
+  <style>
+    .listt{
+    
+     display: flex;
+     flex-direction: row;
+     
+    }
+    
+    input{
+      margin-left: 20px;
+    }
+
+  </style>
+  <div class="row">
+    <div class="col-8 offset-2">
+
+<h3>Create a New Listing</h3>
+<form method="POST" action="/listings/<%= listing._id %>?_method=PUT"  novalidate class="needs-validation" enctype="multipart/form-data" >
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+  <input class="form-control" name="listing[title]" value="<%= listing.title %>" type="text" required />
+  <div class="valid-feedback">Title Look Goods </div>
+  <div class="invalid-feedback"> Please provide Title </div>
+</div>
+<div class="mb-3">
+  <label for="description" class="form-label">Description</label>
+  <textarea class="form-control" required   name="listing[description]" ><%= listing.description %></textarea>
+  <div class="valid-feedback" >Description Look Goods </div>
+  <div class="invalid-feedback">Please provide Description </div>
+</div>
+
+<div class="mb-3">
+  Original Listing Images <br>
+  <img class="rounded-3 border border-dark" src="<%=originalImageUrl%>" alt="" height="200" width="250" />
+</div>
+ 
+<div class="mb-3">
+  <label for="image" class="form-label"> Upload New Images</label>
+  <input
+  class="form-control"
+    name="listing[image]"
+    value="<%= listing.image %>" 
+    type="file"
+    
+   
+    
+  />
+  <div class="valid-feedback">Image Availabe </div>
+  <div class="invalid-feedback">Please provide valid Images link </div>
+</div>
+
+<!-- fliter -->
+<label for="category">Select Categories:</label><br>
+<div class="form-group listt">
+
+  <!-- <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+      Default checkbox
+    </label>
+  </div> -->
+
+  <input class="form-check-input" id="flexCheckDefault" type="checkbox" name="listing[category]" value="Trending" <%= listing.category.includes("Trending") ? "checked" : "" %>> Trending<br>
+  <input type="checkbox" name="listing[category]" value="Rooms" <%= listing.category.includes("Rooms") ? "checked" : "" %>> Rooms<br>
+  <input type="checkbox" name="listing[category]" value="Iconic Cities" <%= listing.category.includes("Iconic Cities") ? "checked" : "" %>> Iconic Cities<br>
+  <input type="checkbox" name="listing[category]" value="Mountains" <%= listing.category.includes("Mountains") ? "checked" : "" %>> Mountains<br>
+  <input type="checkbox" name="listing[category]" value="Castles" <%= listing.category.includes("Castles") ? "checked" : "" %>> Castles<br>
+  </div>
+
+  <div class="listt">
+  <input type="checkbox" name="listing[category]" value="Amazing Pools" <%= listing.category.includes("Amazing Pools") ? "checked" : "" %>> Amazing Pools<br>
+  <input type="checkbox" name="listing[category]" value="Camping" <%= listing.category.includes("Camping") ? "checked" : "" %>> Camping<br>
+  <input type="checkbox" name="listing[category]" value="Farms" <%= listing.category.includes("Farms") ? "checked" : "" %>> Farms<br>
+  <input type="checkbox" name="listing[category]" value="Arctic" <%= listing.category.includes("Arctic") ? "checked" : "" %>> Arctic<br>
+
+</div>
+
+<!-- "Castles","Amazing Pools","Camping","Farms","Arctic" -->
+<!--  End Filter -->
+
+
+<div class="row">
+  <div class="mb-3 col-md-4">
+    <label for="price" class="form-label">Price</label>
+  <input class="form-control" name="listing[price]" value="<%= listing.price %>" type="number" required />
+  <div class="valid-feedback">Price Look Goods </div>
+  <div class="invalid-feedback"> Please provide valid Price </div>
+</div>
+
+<div class="mb-3 col-md-8">
+  <label for="Country" class="form-label">Country</label>
+  <input class="form-control" name="listing[country]" value="<%= listing.country %>"  type="text" required />
+  <div class="valid-feedback"> Country Name Good </div>
+  <div class="invalid-feedback"> Please provide valid country </div>
+</div>
+</div>
+<div class="mb-3">
+  <label for="location" class="form-label">Location</label>
+  <input
+  class="form-control"
+    name="listing[location]"
+    value="<%= listing.location %>" 
+    type="text"
+    required
+  />
+  <div class="valid-feedback">Location Look Goods </div>
+  <div class="invalid-feedback"> Please provide valid Location </div>
+</div>
+ 
+  <button class="btn btn-dark addBtn">Update</button>
+  <br /><br />
+</form>
+</div>
+</div>
+</body>

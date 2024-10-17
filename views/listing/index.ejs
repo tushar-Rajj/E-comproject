@@ -1,0 +1,145 @@
+<% layout("/layouts/boilerplate") %>
+
+  <body>
+    
+    <!-- <h3>All Listings</h3> -->
+    <!-- <form method="GET" action="/listings/new">
+      <button>Create New Listing</button>
+    </form> -->
+   <style>
+    #filters{
+     display: flex;
+     flex-wrap: wrap;
+     margin-left: 10rem;
+     color: black;
+     text-decoration: none;
+    }
+    .filter{
+      margin-top: 1rem;
+      text-align: center;
+      margin-right: 2rem ;
+      opacity: 0.7;
+      cursor: pointer;
+      color: black;
+      text-decoration: none;
+     
+    }
+    .filter:hover{
+      opacity: 1;
+      
+    }
+    .filter p{
+      font-size: 0.1;
+      color: black;
+      border: none;
+      text-decoration: none;
+    }
+    .filter i{
+      color: black;
+    }
+    .filter a{
+      text-decoration: none;
+      
+    }
+
+   </style>
+    <div id="filters">
+      <div class="filter">
+        <a href="/listings?category=Trending">
+          <div><i class="fa-solid fa-fire"></i></div>
+          <p>Trending</p>
+        </a>
+      </div>
+      <div class="filter">
+        <a href="/listings?category=Rooms">
+          <div><i class="fa-solid fa-bed"></i></div>
+          <p>Rooms</p>
+        </a>
+      </div>
+      <div class="filter">
+        <a href="/listings?category=Iconic Cities">
+          <div><i class="fa-solid fa-mountain-city"></i></div>
+          <p>Iconic Cities</p>
+        </a>
+      </div>
+      <div class="filter">
+        <a href="/listings?category=Mountains">
+          <div><i class="fa-solid fa-mountain"></i></div>
+          <p>Mountains</p>
+        </a>
+      </div>
+
+      <div class="filter">
+        <a href="/listings?category=Castles">
+        <div><i class="fa-brands fa-fort-awesome"></i></div>
+        <p>Castles</p>
+      </a>
+      </div>
+      <div class="filter">
+        <a href="/listings?category=Amazing Pools">
+        <div><i class="fa-solid fa-person-swimming"></i></div>
+        <p>Amazing Pools </p>
+        </a>
+      </div>
+
+      
+      <div class="filter">
+        <a href="/listings?category=Camping">
+        <div><i class="fa-solid fa-campground"></i></div>
+        <p>Camping</p>
+        </a>
+      </div>
+      <div class="filter">
+        <a href="/listings?category=Farms">
+        <div><i class="fa-solid fa-cow"></i></div>
+        <p>Farms </p>
+        </a>
+      </div>
+      <div class="filter">
+        <a href="/listings?category=Arctic">
+        <div><i class="fa-solid fa-snowflake"></i></div>
+        <p>Arctic</p>
+        </a>
+      </div>
+      
+    </div>
+
+
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1  mt-3 ">
+    <% for(let listing of allListings) { %>
+      <a href="/listings/<%= listing._id %>" class="listing-link">
+    <div class="card col listing-card " >
+      <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Images" style="height: 20rem;">
+      <div class="card-img-overlay">
+        <!-- <%=listing.description%> -->
+      </div>
+
+      <div class="card-body">
+        <p class="card-text mb-8">
+          <b><%= listing.title %></b>
+           <br/>
+          &#8377; <%= listing.price %> / Night <br/>
+        </p>
+      </div>
+    </div>
+  </a>
+    <% } %>
+  </div>
+
+
+<!--   
+    <ul>
+      <% for(let listing of allListings) { %>
+      <li><a href="/listings/<%= listing._id %>"> <%= listing.title %> </a></li>
+      <% } %>
+    </ul> -->
+  </body>
+
+<script>
+  function filterListings(category) {
+    window.location.href = `/listings/filter?category=${category}`;
+  }
+</script>
+
+
+

@@ -1,0 +1,116 @@
+<% layout("/layouts/boilerplate") %>
+  <body>
+    <div class="row">
+      <div class="col-8 offset-2">
+
+    <h3 class="">Create a New Listing</h3>
+    <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+      <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input class="form-control" name="listing[title]" placeholder="enter title" type="text" required />
+        <div class="valid-feedback">Title Look Goods </div>
+        <div class="invalid-feedback"> Please provide Title </div>
+    </div>
+   <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+      <textarea
+      class="form-control"
+        name="listing[description]"
+        placeholder="enter description"
+        required
+      ></textarea>
+      <div class="valid-feedback">Description Look Goods </div>
+      <div class="invalid-feedback">Please provide Description </div>
+
+    </div>
+     
+    <!-- <div class="mb-3">
+      <label for="image" class="form-label">Images</label>
+      <input
+      class="form-control"
+        name="listing[image]"
+        placeholder="enter image URL/Link"
+        type="text"
+     
+      />
+      <div class="valid-feedback">Images Look Goods </div>
+      <div class="invalid-feedback"> Please provide Images </div>
+    </div> -->
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Upload Listing Images</label>
+      <input
+      class="form-control"
+        name="listing[image]"
+        
+        type="file"
+     
+      />
+      <div class="valid-feedback">Images Look Goods </div>
+      <div class="invalid-feedback"> Please provide Images </div>
+    </div>
+      
+ <!-- Filter -->
+     
+
+  
+ <label for="category" >Select Categories:</label><br>
+ <input style="margin-top: 15px;"  type="checkbox" name="listing[category]" value="Trending"> Trending
+ <input type="checkbox" name="listing[category]" value="Rooms"> Rooms
+ <input type="checkbox" name="listing[category]" value="Iconic Cities"> Iconic Cities
+ <input type="checkbox" name="listing[category]" value="Mountains"> Mountains<br>
+ <input type="checkbox" name="listing[category]" value="Mountains"> Amazing Pools
+ <input type="checkbox" name="listing[category]" value="Mountains"> Castles
+ <input type="checkbox" name="listing[category]" value="Mountains"> Farms
+ <input type="checkbox" name="listing[category]" value="Mountains"> Arctic<br>
+
+ <!-- <div class="form-group">
+  <label for="category">Category</label>
+  <select name="listing[category]" id="category" class="form-control" required>
+    <option value="Trending">Trending</option>
+    <option value="Rooms">Rooms</option>
+    <option value="Iconic Cities">Iconic Cities</option>
+    <option value="Mountains">Mountains</option>
+
+    <option value="Castles">Castles</option>
+    <option value="Amazing Pools">Amazing Pools</option>
+    <option value="Camping">Camping</option>
+    <option value="Farms">Farms</option>
+    <option value="Arctic">Arctic</option>
+  </select>
+</div>
+ -->
+<!-- End Filter  -->
+
+    <div style="margin-top: 15px;" class="row">
+    <div class="mb-3 col-md-4">
+      <label for="price" class="form-label">Price</label>
+      <input name="listing[price]"  class="form-control" placeholder="enter price" type="" required />
+      <div class="valid-feedback">Price Look Goods </div>
+      <div class="invalid-feedback"> Please provide valid Price </div>
+    </div>
+    <div class="mb-3 col-md-8">
+      <label for="Country" class="form-label">Country</label>
+      <input name="listing[country]"  class="form-control" placeholder="enter country" type="text" required />
+      <div class="valid-feedback"> Country Name Good </div>
+        <div class="invalid-feedback"> Please provide valid country </div>
+    </div>
+  </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input
+      class="form-control"
+        name="listing[location]"
+        placeholder="enter location"
+        type="text"
+        required />
+      <div class="valid-feedback">Location Look Goods </div>
+      <div class="invalid-feedback"> Please provide valid Location </div>
+    </div>
+      
+      <button class="btn btn-dark addBtn" >Add</button>
+      <br></br>
+    </form>
+  </div>
+    </div>
+  </body>
